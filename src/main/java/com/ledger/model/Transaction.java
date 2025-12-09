@@ -1,34 +1,23 @@
 package com.ledger.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-
+import lombok.Data;
 import java.time.LocalDateTime;
 
+@Data
 @Entity
 @Table(name = "transactions")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private LocalDateTime timestamp = LocalDateTime.now();
+    private Long accountId;
 
-    @Column(nullable = false)
-    private String type; // DEBIT / CREDIT
-
-    @Column(nullable = false)
     private Double amount;
 
-    @Column(nullable = false)
-    private String description;
+    private String type; // credit or debit
 
-    @ManyToOne
-    @JoinColumn(name = "account_id", nullable = false)
-    private Account account;
+    private LocalDateTime timestamp = LocalDateTime.now();
 }
