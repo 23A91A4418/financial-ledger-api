@@ -1,18 +1,18 @@
  Financial Ledger API — Double Entry Accounting System
 A production-grade financial ledger API implementing double-entry bookkeeping, immutable transactions, accurate balance calculation, and safe concurrent transfers using Spring Boot + PostgreSQL.
 ________________________________________
-🚀 Features Implemented
-✔ Create accounts
-✔ Credit & debit transactions
-✔ Atomic money transfers (debit + credit)
-✔ Immutable ledger entries
-✔ Accurate balance computed from ledger
-✔ Full transaction history per account
-✔ Swagger Documentation
-✔ PostgreSQL persistence
-✔ Transactional integrity (@Transactional)
+**Features Implemented**
+Create accounts
+ Credit & debit transactions
+Atomic money transfers (debit + credit)
+Immutable ledger entries
+Accurate balance computed from ledger
+Full transaction history per account
+Swagger Documentation
+PostgreSQL persistence
+Transactional integrity (@Transactional)
 ________________________________________
-📁 Project Folder Structure
+**Project Folder Structure**
 financial-ledger-api/
 ├── src/main/java/com/ledger/
 │   ├── controller/
@@ -26,7 +26,7 @@ financial-ledger-api/
 │   ├── application.properties
 ├── pom.xml
 ________________________________________
-🛠 Tech Stack
+Tech Stack
 •	Java 17
 •	Spring Boot 3
 •	Spring Data JPA
@@ -47,17 +47,17 @@ GET	/ledger	Ledger entries (immutable)
  
 
 ________________________________________
-📌 How the Ledger System Works
-✅ Double Entry Bookkeeping
+How the Ledger System Works
+Double Entry Bookkeeping
 Every transaction creates ledger entries:
 •	Credit transaction → credit amount
 •	Debit transaction → debit amount
-✅ Ledger Is Immutable
+edger Is Immutable
 Once written, entries are never edited or deleted
  .
 ________________________________________
-🧪 API Usage Examples 
-1️⃣ Create Account
+**API Usage Examples** 
+1️ Create Account
 Request
 POST /accounts
 {
@@ -65,7 +65,7 @@ POST /accounts
   "balance": 0
 }
  ________________________________________
-2️⃣ Credit Transaction
+2️ Credit Transaction
 Request
 POST /transactions
 {
@@ -74,7 +74,7 @@ POST /transactions
   "type": "credit"
 }
  ________________________________________
-3️⃣ Debit Transaction
+3️ Debit Transaction
 Request
 POST /transactions
 {
@@ -83,11 +83,11 @@ POST /transactions
   "type": "debit"
 }
  ________________________________________
-4️⃣ Check Balance
+4️ Check Balance
 Request
 GET /accounts/1/balance
  ________________________________________
-5️⃣ Money Transfer
+5️ Money Transfer
 Request
 POST /transactions/transfer
 {
@@ -96,11 +96,11 @@ POST /transactions/transfer
   "amount": 100
 }
  ________________________________________
-6️⃣ Transaction History
+6️ Transaction History
 GET /accounts/1/transactions
  ________________________________________
 Diagrams
-📌 1. High-Level Architecture
+1. High-Level Architecture
 +-------------------+         +------------------------+        +---------------------+
 |                   | HTTP    |                        |        |                     |
 |     CLIENT        +-------->+   SPRING CONTROLLERS   +------->+     SERVICES        |
@@ -128,7 +128,7 @@ Diagrams
 
 
 
-📌 2. Data Flow (Credit / Debit)
+2. Data Flow (Credit / Debit)
 User           Controller             Service                Repositories          DB
  | POST /transfer   |                     |                      |
  |------------------>|                     |                      |
@@ -145,7 +145,7 @@ User           Controller             Service                Repositories       
  |                   |                   	| save ledger entries  |
  |                   |<--------------------|                      |
  |   Transfer OK     |                     |                      |
-📌 3. Double-Entry Ledger Diagram
+3. Double-Entry Ledger Diagram
 | LedgerEntry ID | Account | Debit | Credit | Transaction ID |
 |----------------|---------|--------|--------|----------------|
 | 1              | 1       | 0      | 500    | 10             |
@@ -154,16 +154,16 @@ User           Controller             Service                Repositories       
 | 4 (Receiver)   | 2       | 0      | 100    | 12             |
 ________________________________________
 Expected Outcomes 
-✔ Fully functional REST API
-✔ Atomic transfers
-✔ Immutable ledger
-✔ Safe concurrency via @Transactional
-✔ Negative balances prevented
-✔ Balance derived from ledger entries
-✔ Complete history available
-✔ Production-ready structure
+Fully functional REST API
+Atomic transfers
+Immutable ledger
+Safe concurrency via @Transactional
+Negative balances prevented
+Balance derived from ledger entries
+Complete history available
+Production-ready structure
 ________________________________________
-▶️ How to Run
+How to Run
 1. Start PostgreSQL
 Create database:
 CREATE DATABASE ledger;
@@ -177,7 +177,7 @@ mvn spring-boot:run
 4. Open Swagger
 http://localhost:8080/swagger-ui/index.html
 ________________________________________
-📘 Conclusion
+Conclusion
 This project demonstrates:
 •	Financial-grade ledger design
 •	Strong transactional consistency
